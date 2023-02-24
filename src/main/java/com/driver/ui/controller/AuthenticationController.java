@@ -15,8 +15,8 @@ import com.driver.service.UserService;
 @RestController
 public class AuthenticationController {
 
-	//@Autowired
-	UserService userService=new UserServiceImpl();
+	@Autowired
+	UserServiceImpl userService;
 	
 	@RequestMapping(value = "/users/{email}", method = RequestMethod.GET)
 	public UserResponse getUserByEmail(@PathVariable String email) throws Exception{

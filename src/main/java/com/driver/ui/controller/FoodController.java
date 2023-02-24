@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/foods")
 public class FoodController {
 
-	//@Autowired
-	FoodServiceImpl foodService=new FoodServiceImpl();
+	@Autowired
+	FoodServiceImpl foodService;
 
 	@GetMapping(path="/{id}")
 	public FoodDetailsResponse getFood(@PathVariable String id) throws Exception{
@@ -34,7 +34,7 @@ public class FoodController {
 			foodDetailsResponse=foodService.getFoodById(id).toFoodDetailsResponse();
 		}
 		catch (Exception e){
-
+			System.out.println(e.toString());
 		}
 		return foodDetailsResponse;
 	}

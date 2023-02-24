@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/orders")
 public class OrderController {
 
-	//@Autowired
-	OrderServiceImpl orderService=new OrderServiceImpl();
+	@Autowired
+	OrderServiceImpl orderService;
 	@GetMapping(path="/{id}")
 	public OrderDetailsResponse getOrder(@PathVariable String id) throws Exception{
 		OrderDetailsResponse orderDetailsResponse=null;
@@ -32,7 +32,7 @@ public class OrderController {
 			orderDetailsResponse=orderService.getOrderById(id).toOrderDetailsResponse();
 		}
 		catch (Exception e){
-
+			System.out.println(e.toString());
 		}
 
 		return orderDetailsResponse;
@@ -45,7 +45,7 @@ public class OrderController {
 			orderDetailsResponse=orderService.createOrder(order.toOrderDto()).toOrderDetailsResponse();
 		}
 		catch (Exception e){
-
+			System.out.println(e.toString());
 		}
 
 		return orderDetailsResponse;
@@ -58,7 +58,7 @@ public class OrderController {
 			orderDetailsResponse=orderService.updateOrderDetails(id, order.toOrderDto()).toOrderDetailsResponse();
 		}
 		catch (Exception e){
-
+			System.out.println(e.toString());
 		}
 
 		return orderDetailsResponse;
@@ -74,6 +74,7 @@ public class OrderController {
 		}
 		catch (Exception e){
 			operationStatusModel.setOperationResult(RequestOperationStatus.ERROR.toString());
+			System.out.println(e.toString());
 		}
 
 		return operationStatusModel;
@@ -90,7 +91,7 @@ public class OrderController {
 			}
 		}
 		catch (Exception e){
-
+			System.out.println(e.toString());
 		}
 
 		return orderDetailsResponseList;
