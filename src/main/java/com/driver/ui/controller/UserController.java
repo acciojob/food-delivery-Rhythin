@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
 
-	@Autowired
-	UserServiceImpl userService;
+	//@Autowired
+	UserServiceImpl userService=new UserServiceImpl();
 
 	@GetMapping(path = "/{id}")
 	public UserResponse getUser(@PathVariable String id) throws Exception{
