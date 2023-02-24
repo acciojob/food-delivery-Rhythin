@@ -1,5 +1,7 @@
 package com.driver.shared.dto;
 
+import com.driver.model.response.OrderDetailsResponse;
+
 import java.io.Serializable;
 
 public class OrderDto{
@@ -57,6 +59,18 @@ public class OrderDto{
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public OrderDetailsResponse toOrderDetailsResponse(){
+		OrderDetailsResponse orderDetailsResponse=new OrderDetailsResponse();
+
+		orderDetailsResponse.setOrderId(orderId);
+		orderDetailsResponse.setCost(cost);
+		orderDetailsResponse.setItems(items);
+		orderDetailsResponse.setUserId(userId);
+		orderDetailsResponse.setStatus(status);
+
+		return orderDetailsResponse;
 	}
 
 }

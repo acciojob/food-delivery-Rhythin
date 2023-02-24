@@ -1,5 +1,8 @@
 package com.driver.model.request;
 
+import com.driver.shared.dto.OrderDto;
+import org.hibernate.criterion.Order;
+
 public class OrderDetailsRequestModel {
 
 	private String[] items;
@@ -27,6 +30,16 @@ public class OrderDetailsRequestModel {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public OrderDto toOrderDto(){
+		OrderDto orderDto=new OrderDto();
+
+		orderDto.setItems(items);
+		orderDto.setCost(cost);
+		orderDto.setUserId(userId);
+
+		return orderDto;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.driver.model.request;
 
+import com.driver.shared.dto.FoodDto;
+
 public class FoodDetailsRequestModel {
 
 	private String foodName;
@@ -29,4 +31,13 @@ public class FoodDetailsRequestModel {
 		this.foodPrice = foodPrice;
 	}
 
+	public FoodDto toFoodDto(){
+		FoodDto foodDto=new FoodDto();
+
+		foodDto.setFoodName(foodName);
+		foodDto.setFoodCategory(foodCategory);
+		foodDto.setFoodPrice(foodPrice);
+
+		return foodDto;
+	}
 }

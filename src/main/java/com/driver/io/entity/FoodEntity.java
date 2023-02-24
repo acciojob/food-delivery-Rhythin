@@ -1,6 +1,9 @@
 package com.driver.io.entity;
 
+import com.driver.shared.dto.FoodDto;
+
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,5 +66,18 @@ public class FoodEntity{
 
 	public void setFoodCategory(String foodCategory) {
 		this.foodCategory = foodCategory;
+	}
+
+
+	public FoodDto toFoodDto(){
+		FoodDto foodDto=new FoodDto();
+
+		foodDto.setId(id);
+		foodDto.setFoodId(foodId);
+		foodDto.setFoodName(foodName);
+		foodDto.setFoodCategory(foodCategory);
+		foodDto.setFoodPrice(foodPrice);
+
+		return foodDto;
 	}
 }

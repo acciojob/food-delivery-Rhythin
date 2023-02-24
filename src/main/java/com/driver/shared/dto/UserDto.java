@@ -1,5 +1,7 @@
 package com.driver.shared.dto;
 
+import com.driver.model.response.UserResponse;
+
 public class UserDto{
 
 	private long id;
@@ -48,4 +50,14 @@ public class UserDto{
 		this.email = email;
 	}
 
+	public UserResponse toUserResponse() {
+		UserResponse userResponse=new UserResponse();
+
+		userResponse.setUserId(userId);
+		userResponse.setEmail(email);
+		userResponse.setFirstName(firstName);
+		userResponse.setLastName(lastName);
+
+		return userResponse;
+	}
 }

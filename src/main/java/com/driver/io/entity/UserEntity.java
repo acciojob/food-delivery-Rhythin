@@ -1,5 +1,7 @@
 package com.driver.io.entity;
 
+import com.driver.shared.dto.UserDto;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -64,5 +66,17 @@ public class UserEntity{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public UserDto toUserDto() {
+		UserDto userDto=new UserDto();
+
+		userDto.setId(id);
+		userDto.setUserId(userId);
+		userDto.setFirstName(firstName);
+		userDto.setLastName(lastName);
+		userDto.setEmail(email);
+
+		return userDto;
 	}
 }

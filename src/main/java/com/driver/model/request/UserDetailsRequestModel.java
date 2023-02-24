@@ -1,5 +1,7 @@
 package com.driver.model.request;
 
+import com.driver.shared.dto.UserDto;
+
 public class UserDetailsRequestModel {
 
 	private String firstName;
@@ -29,4 +31,13 @@ public class UserDetailsRequestModel {
 		this.email = email;
 	}
 
+	public UserDto toUserDto(){
+		UserDto userDto=new UserDto();
+
+		userDto.setFirstName(firstName);
+		userDto.setLastName(lastName);
+		userDto.setEmail(email);
+
+		return userDto;
+	}
 }

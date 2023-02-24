@@ -1,5 +1,7 @@
 package com.driver.io.entity;
 
+import com.driver.shared.dto.OrderDto;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -75,5 +77,18 @@ public class OrderEntity {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public OrderDto toOderDto() {
+		OrderDto orderDto=new OrderDto();
+
+		orderDto.setId(id);
+		orderDto.setOrderId(orderId);
+		orderDto.setCost(cost);
+		orderDto.setItems(items);
+		orderDto.setStatus(status);
+		orderDto.setUserId(userId);
+
+		return orderDto;
 	}
 }

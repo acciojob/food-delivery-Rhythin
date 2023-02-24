@@ -1,5 +1,7 @@
 package com.driver.shared.dto;
 
+import com.driver.model.response.FoodDetailsResponse;
+
 import java.io.Serializable;
 
 public class FoodDto{
@@ -48,6 +50,17 @@ public class FoodDto{
 
 	public void setFoodPrice(float foodPrice) {
 		this.foodPrice = foodPrice;
+	}
+
+	public FoodDetailsResponse toFoodDetailsResponse(){
+		FoodDetailsResponse foodDetailsResponse=new FoodDetailsResponse();
+
+		foodDetailsResponse.setFoodId(foodId);
+		foodDetailsResponse.setFoodName(foodName);
+		foodDetailsResponse.setFoodPrice(foodPrice);
+		foodDetailsResponse.setFoodCategory(foodCategory);
+
+		return foodDetailsResponse;
 	}
 
 }
